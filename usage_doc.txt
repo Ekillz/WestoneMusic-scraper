@@ -1,0 +1,33 @@
+usage: weston_scraper.py [-h] -db_name DB_NAME [-host HOST] [-port PORT]
+                         [-user USER] [-password PASSWORD]
+
+Scraps album and trackdata from WestOneMusic.com and stores it in a MongoDB
+
+optional arguments:
+  -h, --help          show this help message and exit
+  -host HOST          Host to be used for the Mongo Connection, default:
+                      localhost
+  -port PORT          Port to be used for the Mongo Connection, default: 27017
+  -user USER          User to be used for the Mongo Connection, default: ''
+  -password PASSWORD  Password to be used for the Mongo Connection, default:
+                      ''
+
+required arguments:
+  -db_name DB_NAME    Name of the Mongo database
+  
+  
+- This script needs to be launched on a system that has "pymongo" installed.
+
+- This script scraps an album, and then it's tracks before continuing to the next album. It might take a while to scrape everything.
+
+- The output of the script is like the following:
+    [<LABEL_NAME>] LEN:<NUMBER_OF_TOTAL_ALBUMS_IN_LABEL>
+    [<LABEL_NAME>-<ALBUM_NUMBER>]
+    
+- At the end of the execution, the script shows the following statistics:
+    # Number of created albums
+    # Number of updated albums
+    # Number of created tracks
+    # Number of updated tracks
+    # Number of HTTP requests
+    # total time
